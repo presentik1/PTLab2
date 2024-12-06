@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Спасибо за покупку!</title>
+</head>
+<body>
+    <div>
+        <h3>Спасибо за покупку, {{ person }}!</h3>
+        <p>Вы купили {{ quantity }} товара(ов).</p>
+
+        <p><a href="{% url 'index' %}"><button>Вернуться в главное меню</button></a></p>
+    </div>
+</body>
+</html>

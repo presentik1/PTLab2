@@ -3,13 +3,16 @@
   fields:
     name: Стол
     price: 2000
+    quantity: 10
 - model: shop.product
   pk: 2
   fields:
     name: Стул
     price: 1000
+    quantity: 5
 - model: shop.product
   pk: 3
   fields:
     name: Табурет
     price: 500
+    quantity: 8

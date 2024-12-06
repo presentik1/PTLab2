@@ -2,25 +2,36 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Покупка</title>
+    <title>Покупка товара</title>
 </head>
 <body>
     <div>
-        <h3>Покупка</h3>
-        <form method="post">{% csrf_token %}
-            <input type="hidden" value="{{ view.kwargs.product_id }}" name="product" />
+        <h3>Покупка товара: {{ product.name }}</h3>
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="product" value="{{ product.id }}" />
             <table>
                 <tr>
-                    <td><p>Введите свое имя </p></td>
-                    <td><input type="text" name="person" /> </td>
+                    <td><p>Введите количество товара:</p></td>
+                    <td>
+                        <input type="number" name="quantity" min="1" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td><p>Введите свое имя:</p></td>
+                    <td><input type="text" name="person" required /></td>
                 </tr>
                 <tr>
                     <td><p>Введите адрес доставки:</p></td>
-                    <td>
-                        <input type="text" name="address" />
-                    </td>
+                    <td><input type="text" name="address" required /></td>
                 </tr>
-                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+                <tr>
+                    <td><input type="submit" value="Отправить" /></td>
+                    <td></td>
+                </tr>
             </table>
         </form>
     </div>

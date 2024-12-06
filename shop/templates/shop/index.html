@@ -6,18 +6,26 @@
 </head>
 <body>
     <div>
-        <h3>Список</h3>
+        <h3>Список товаров</h3>
         <table>
             <tr>
                 <td><p>Наименование</p></td>
                 <td><p>Цена</p></td>
+                <td><p>Количество</p></td>
                 <td></td>
             </tr>
             {% for p in products %}
                 <tr>
                     <td><p>{{ p.name }}</p></td>
                     <td><p>{{ p.price }}</p></td>
-                    <td><p><a href="/buy/{{ p.id }}">Купить</a></p></td>
+                    <td><p>{{ p.quantity }}</p></td>
+                    <td>
+                        {% if p.quantity > 0 %}
+                            <p><a href="{% url 'purchase' p.id %}">Купить</a></p>
+                        {% else %}
+                            <p>Товар закончился</p>
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
         </table>

@@ -15,6 +15,9 @@ class ExtendedPurchaseViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         purchase = Purchase.objects.get(product=self.product)
         self.assertEqual(purchase.quantity, 2)
+        
+
+        self.product.refresh_from_db()
         self.assertEqual(self.product.quantity, 8)
 
     def test_invalid_quantity(self):
