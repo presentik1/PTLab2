@@ -1,18 +1,42 @@
 - model: shop.product
   pk: 1
   fields:
-    name: Стол
-    price: 2000
-    quantity: 10
+    name: Ваза ручной работы
+    price: 8000
+    quantity: 5
 - model: shop.product
   pk: 2
   fields:
-    name: Стул
-    price: 1000
-    quantity: 5
+    name: Кристальная люстра
+    price: 15000
+    quantity: 3
 - model: shop.product
   pk: 3
   fields:
-    name: Табурет
-    price: 500
+    name: Часы с золотым покрытием
+    price: 12000
+    quantity: 7
+- model: shop.product
+  pk: 4
+  fields:
+    name: Кожаный диван
+    price: 25000
+    quantity: 2
+- model: shop.product
+  pk: 5
+  fields:
+    name: Мраморный стол
+    price: 22000
+    quantity: 4
+- model: shop.product
+  pk: 6
+  fields:
+    name: Сет из посуды с золотым ободком
+    price: 5000
+    quantity: 10
+- model: shop.product
+  pk: 7
+  fields:
+    name: Декоративная подушка с вышивкой
+    price: 3500
     quantity: 8

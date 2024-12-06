@@ -4,7 +4,7 @@ from .models import Product, Purchase
 
 # Главная страница с товарами
 def index(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('id')  # Сортировка по ID
     context = {'products': products}
     return render(request, 'shop/index.html', context)
 

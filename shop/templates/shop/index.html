@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Товары</title>
+    {% load static %} <!-- Загрузка статического тега -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <div>
+    <header>
+        <h1>Аксессуары для изысканных интерьеров</h1>
+    </header>
+
+    <main>
         <h3>Список товаров</h3>
         <table>
-            <tr>
-                <td><p>Наименование</p></td>
-                <td><p>Цена</p></td>
-                <td><p>Количество</p></td>
-                <td></td>
-            </tr>
-            {% for p in products %}
+            <thead>
                 <tr>
-                    <td><p>{{ p.name }}</p></td>
-                    <td><p>{{ p.price }}</p></td>
-                    <td><p>{{ p.quantity }}</p></td>
-                    <td>
-                        {% if p.quantity > 0 %}
-                            <p><a href="{% url 'purchase' p.id %}">Купить</a></p>
-                        {% else %}
-                            <p>Товар закончился</p>
-                        {% endif %}
-                    </td>
+                    <th>Наименование</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                    <th>Действия</th>
                 </tr>
-            {% endfor %}
+            </thead>
+            <tbody>
+                {% for p in products %}
+                    <tr>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.price }} ₽</td>
+                        <td>{{ p.quantity }}</td>
+                        <td>
+                            {% if p.quantity > 0 %}
+                                <a href="{% url 'purchase' p.id %}">Купить</a>
+                            {% else %}
+                                <p>Товар закончился</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-    </div>
+    </main>
 </body>
 </html>

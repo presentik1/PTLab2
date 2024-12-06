@@ -1,10 +1,11 @@
 from django.test import TestCase, Client
-from shop.views import PurchaseCreate
 
-class PurchaseCreateTestCase(TestCase):
+class WebpageAccessibilityTestCase(TestCase):
     def setUp(self):
+        # Создаем клиент для имитации запросов
         self.client = Client()
 
     def test_webpage_accessibility(self):
+        # Проверяем, что главная страница доступна
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
